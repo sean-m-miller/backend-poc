@@ -1,0 +1,1 @@
+ormDatabase.py uses SQLalchemy's object relational mapping format to create a database which stores and relates users and books.
