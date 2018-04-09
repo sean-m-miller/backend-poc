@@ -3,12 +3,14 @@ import sqlite3
 connection = sqlite3.connect('data.db')
 cursor = connection.cursor()
 
-create_table = 'CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username text, password text)'
+create_table = 'CREATE TABLE IF NOT EXISTS listings (listing_id INTEGER PRIMARY KEY, price real, condition text, isbn int, user_id int, status text)'
 # INTEGER PRIMARY KEY is an automatically incrementing id number
-# user will only have to pass in username and password, and the id number will then be assigned
 cursor.execute(create_table)
 
-create_table = 'CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY, name text, price real)' #real is a decimal number
+create_table = 'CREATE TABLE IF NOT EXISTS books (book_id INTEGER PRIMARY KEY, isbn int, title text, author text)' #real is a decimal number
+cursor.execute(create_table)
+
+create_table = 'CREATE TABLE IF NOT EXISTS users (user_id INTEGER PRIMARY KEY, name text, email text)'
 cursor.execute(create_table)
 
 connection.commit()
